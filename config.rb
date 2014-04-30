@@ -1,5 +1,6 @@
 require 'slim'
-# require 'susy'
+require 'susy'
+require 'compass-normalize'
 
 ###
 # Compass
