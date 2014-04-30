@@ -1,0 +1,57 @@
+body
+  background: $bg-tint
+  text-align: center
+  @extend %font-serif
+  color: $gray
+
+section
+  +container
+  +clearfix
+  position: relative
+  padding: $section-vertical-space 0
+  article
+    +span-columns(8, 12)
+    +push(2)
+    +post(2)
+  &:nth-child(even)
+    background-color: $bg-shade
+
+section.blue
+  background: $blue
+  h1
+    color: white
+
+h1, h2, h3
+  @extend %font-sans
+  text-transform: uppercase
+h1
+  color: $orange
+h2
+  color: $orange
+h3
+  color: $dark-gray
+
+hr
+  height: 1px
+  border: none
+  border-bottom: 1px solid #CCC
+  margin: 20px
+
+a
+  color: $orange
+  text-decoration: none
+
+a.hire-us
+  margin: 20px 0
+  @extend %font-sans
+  display: inline-block
+  padding: 10px
+  width: 280px
+  +border-radius(4px)
+  background: $orange
+  color: white
+  text-transform: uppercase
+  small
+    text-transform: none
+
+
