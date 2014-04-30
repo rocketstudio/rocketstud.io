@@ -107,4 +107,3 @@ DEPENDENCIES
   middleman-livereload (~> 3.1.0)
   slim
   susy
-  wdm (~> 0.1.0)

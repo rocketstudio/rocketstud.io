@@ -20,16 +20,29 @@
       });
     });
 
-    $('nav a').on('click', function(){
-      var href = $(this).attr('href');
-      $('nav a').removeClass('active');
-      $(this).addClass('active');
-
-      $('section[data-anchor=' + href + ']')
-      .animatescroll({
-        scrollSpeed:1000,
-        easing:'easeInOutCubic'
-      });
+    $('nav').onePageNav({
+      changeHash: true,
+      scrollChange: function(el){
+        trackPageViewLink($('a', el));
+      }
     });
+
+    $('nav a').on('click', function(){
+      trackPageViewLink($(this));
+    });
+
+    $('a.hire-us').on('click', function(){
+      trackPageView('/hire-us');
+    });
+
+    var trackPageViewLink = function(a){
+      var page = a.attr('href').replace('#', '/');
+      trackPageView(page);
+    }
+
+    var trackPageView = function(url){
+      ga('send', 'pageview', url);
+    }
+
   });
 })(jQuery);
