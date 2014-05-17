@@ -6,32 +6,22 @@ section#our-work(data-anchor="#nosso-trabalho")
       vão de startups até grande corporações.
 
     ul.brands
-      li= image_tag 'logos/volvo.jpg', alt: 'Volvo'
-      li= image_tag 'logos/trackmob.jpg', alt: 'Trackmob'
-      li= image_tag 'logos/enzima.jpg', alt: 'Enzima'
-      li= image_tag 'logos/artely.jpg', alt: 'Artely'
-      li= image_tag 'logos/neoortho.jpg', alt: 'Neoortho'
-      li= image_tag 'logos/adivita.jpg', alt: 'Adivita'
-      li= image_tag 'logos/ademilar.jpg', alt: 'Ademilar'
+      - data.customers.each do |c|
+        li= link_to image_tag("logos/#{c.slug}.jpg", alt: c.title), c.url
 
     h2 Últimos trabalhos
 
   article.jobs
-    div.job
-      h3 Trackmob
-      p O Trackmob é uma solução para o gerenciamento e monitoramento de equipes externas.
-      = image_tag 'jobs/trackmob.jpg'
+    - data.jobs.each do |j|
+      div.job
+        h3= j.customer
+        p= j.description
+        = image_tag "jobs/#{j.slug}.jpg"
+      - unless data.jobs.last == j
+        hr
 
-    hr
-
-    div.job
-      h3 Volvo CE
-      p O CS Challenge é uma campanha de incentivo para a equipe de
-        vendas, pós-vendas e manutenção da Volvo CE.
-      = image_tag 'jobs/cs-challenge.jpg'
-
-    = link_to '#', class: 'hire-us' do
-      | Quer trabalhar com a gente?
-      br
-      small Clique aqui para nos contratar
+    / = link_to '#', class: 'hire-us' do
+    /   | Quer trabalhar com a gente?
+    /   br
+    /   small Clique aqui para nos contratar
 
