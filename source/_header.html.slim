@@ -1,5 +1,8 @@
 section#intro(data-type="background" data-speed="4")
   div#logo
-    h1= image_tag "logo-rocket-studio.png", alt: 'Rocket Studio'
+    h1= image_tag "logo-rocket-studio.png", alt: "#{current_page.data.title}"
     h2
      = h 'web & mobile feito para humanos'
+
+  a.scroll-down.floating href="#who-we-are"
+    i.fa.fa-chevron-down

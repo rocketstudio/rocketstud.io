@@ -8,15 +8,23 @@
 
 // HEADER
 nav
-  position: fixed
+  position: absolute
   top: 0
   right: 0
   left: 0
-  +clearfix
   z-index: 1
   text-align: center
   @extend %font-sans
-  background: black
+  transition: all 0.2s ease-in-out
+  h1.logo
+    display: none
+    position: absolute
+    top: 15px
+    left: 80px
+    width: 140px
+    margin: 0
+    img
+      width: 100%
   ul
     +horizontal-list(10px)
     display: inline-block
@@ -27,6 +35,8 @@ nav
         text-transform: uppercase
         color: white
         padding: 5px
+        margin: 2px
+        line-height: 40px
         transition: .2s
         &:hover, &.active
           color: $orange
@@ -34,18 +44,28 @@ nav
       a
         color: $orange
 
+nav.fixed
+  position: fixed
+  background: rgba(0,0,0, 0.8)
+  h1.logo
+    display: block
+  ul
+    li
+      a
+        line-height: 60px
 
 // INTRO
 section#intro
   padding-top: 76px
   background: black image-url('intro.jpg') top center no-repeat
   background-size: cover
-  min-height: 500px
+  min-height: 480px
   #logo
     position: absolute
-    top: 190px
+    top: 50%
     left: 50%
     margin-left: -175px
+    margin-top: -87px
     max-width: 350px
     h1
       margin: 0
@@ -57,6 +77,13 @@ section#intro
       font-size: 1.2em
       @extend %font-sans
       text-transform: lowercase
+  .scroll-down
+    color: white
+    position: absolute
+    bottom: 40px
+    left: 50%
+    margin-left: -16px
+    font-size: 2em
 
 .quote
   background: image-url('moon.jpg') center top

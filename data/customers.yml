@@ -3,21 +3,29 @@
   slug: volvo
   url: http://www.volvo.com.br
 -
-  title: Consulta Remédios
-  slug: cr
-  url: http://www.consultaremedios.com.br
--
   title: Trackmob
   slug: trackmob
   url: http://www.trackmob.com.br
+-
+  title: WWF
+  slug: wwf
+  url: http://www.wwf.org.br
 -
   title: Artely
   slug: artely
   url: http://www.artely.com.br
 -
+  title: Greenpeace
+  slug: greenpeace
+  url: http://www.greenpeace.org
+-
   title: Neoortho
   slug: neoortho
   url: http://www.neoortho.com.br
+-
+  title: Consulta Remédios
+  slug: cr
+  url: http://www.consultaremedios.com.br
 -
   title: Adivita
   slug: adivita
