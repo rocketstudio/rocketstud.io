@@ -1,0 +1,9 @@
+javascript:
+  (function(){
+    var windowHeight = window.innerHeight;
+    var intro = document.getElementById('intro');
+
+    if (windowHeight > 480 && intro != undefined) {
+      intro.style.height = windowHeight + 'px';
+    }
+  })();
