@@ -5,7 +5,131 @@
 @import "base"
 
 @import "structure"
-@import "header"
-@import "intro"
-@import "our-work"
-@import "facts"
+
+// HEADER
+nav
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  z-index: 1
+  text-align: center
+  @extend %font-sans
+  transition: all 0.2s ease-in-out
+  h1.logo
+    display: none
+    position: absolute
+    top: 15px
+    left: 80px
+    width: 140px
+    margin: 0
+    img
+      width: 100%
+  ul
+    +horizontal-list(10px)
+    display: inline-block
+    font-size: 16px
+    li
+      a
+        display: block
+        text-transform: uppercase
+        color: white
+        padding: 5px
+        margin: 2px
+        line-height: 40px
+        transition: .2s
+        &:hover, &.active
+          color: $orange
+    li.current
+      a
+        color: $orange
+
+nav.fixed
+  position: fixed
+  background: rgba(0,0,0, 0.8)
+  h1.logo
+    display: block
+  ul
+    li
+      a
+        line-height: 60px
+
+// INTRO
+section#intro
+  padding-top: 76px
+  background: black image-url('intro.jpg') top center no-repeat
+  background-size: cover
+  min-height: 480px
+  #logo
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-left: -175px
+    margin-top: -87px
+    max-width: 350px
+    h1
+      margin: 0
+      img
+        width: 100%
+    h2
+      text-align: center
+      color: white
+      font-size: 1.2em
+      @extend %font-sans
+      text-transform: lowercase
+  .scroll-down
+    color: white
+    position: absolute
+    bottom: 40px
+    left: 50%
+    margin-left: -16px
+    font-size: 2em
+
+.quote
+  background: image-url('moon.jpg') center top
+  color: white
+  h3
+    color: white
+
+// OURWORK
+section#our-work
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    li
+      padding: 0
+      width: 100px
+      display: inline-block
+      margin: 0 15px
+      img
+        max-width: 100%
+
+  article.jobs
+    +clearfix
+    img
+      max-width: 100%
+
+// FACTS
+section#facts
+  .facts
+    +span-columns(8 omega, 8)
+    .fact
+      +span-columns(2, 8)
+      span
+        font-size: 4em
+        line-height: 1em
+      h4
+        margin: 0
+      &:last-child
+        +omega
+
+// CONTACT
+section#contact
+  background: $dark-blue image-url('map.png') center
+  color: white
+  padding-top: 150px
+  padding-bottom: 50px
+  p
+    margin: 0 0 0.5em 0
+    letter-spacing: 1px

@@ -6,6 +6,7 @@ gem "middleman", "~>3.2.2"
 gem "slim"
 gem "susy"
 gem "compass-normalize"
+gem 'font-awesome-sass'
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"

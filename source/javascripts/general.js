@@ -1,30 +1,18 @@
 (function($){
   $(function(){
 
-    var logo_src = $('#logo').data('logo');
-    $.get(logo_src, null, function(data){
-      var svg_node = $('svg', data);
-      var doc_node = document.adoptNode(svg_node[0]);
-
-      $('#logo').html(doc_node);
-    }, 'xml');
-
-    $('[data-type="background"]').each(function(){
-      var $bgobj = $(this);
-
-      $(window).scroll(function() {
-          var yPos = -($(window).scrollTop() / $bgobj.data('speed'));
-
-          var coords = 'center '+ yPos + 'px';
-          $bgobj.css({ backgroundPosition: coords });
-      });
-    });
-
     $('nav').onePageNav({
       changeHash: true,
       scrollChange: function(el){
         trackPageViewLink($('a', el));
       }
+    });
+
+    $('a.scroll-down').on('click', function(e){
+      var offsetTop = $('#who-we-are').offset().top;
+      $('html, body').animate({ scrollTop: offsetTop }, 750, 'swing');
+      trackPageView('/who-we-are#scroll-down');
+      e.preventDefault();
     });
 
     $('nav a').on('click', function(){
@@ -35,6 +23,24 @@
       trackPageView('/hire-us');
     });
 
+    var introObject = $('#logo')[0];
+    var navObject = $('nav');
+    var hasTimeout = true;
+    $(window).on('scroll', function(){
+      dataIntro = introObject.getBoundingClientRect();
+      if(dataIntro.bottom < 3 && $(window).scrollTop() > 0){
+        navObject.addClass('fixed');
+        hasTimeout = false;
+      }else{
+        if(hasTimeout == false){
+          hasTimeout = true;
+          setTimeout(function(){
+            navObject.removeClass('fixed');
+          }, 500);
+        }
+      }
+    });
+
     var trackPageViewLink = function(a){
       var page = a.attr('href').replace('#', '/');
       trackPageView(page);
@@ -43,6 +49,5 @@
     var trackPageView = function(url){
       ga('send', 'pageview', url);
     }
-
   });
 })(jQuery);
